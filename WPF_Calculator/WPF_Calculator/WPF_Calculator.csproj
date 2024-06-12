@@ -8,4 +8,19 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Texts\Title.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Title.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Texts\Title.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Title.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

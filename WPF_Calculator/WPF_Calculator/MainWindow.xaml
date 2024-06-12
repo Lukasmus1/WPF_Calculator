@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Calculator"
+        xmlns:text="clr-namespace:WPF_Calculator.Resources.Texts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{x:Static text:Title.TitleText}" Height="720" Width="512">
     <Grid>
 
     </Grid>
