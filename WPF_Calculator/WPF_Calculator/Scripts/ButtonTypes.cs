@@ -7,6 +7,8 @@ public enum ButtonTypes
     Clear,
     Backspace,
     Pow, 
-    Sqrt,
+    Root,
+    Ans,
+    Res,
     Menu
 }

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,6 +25,19 @@ public partial class MainWindow : Window
 
     private void OnClick(object sender, RoutedEventArgs e)
     {
-        TextBoxBuilder.ParseClick(sender, MainTb);
+        try
+        {
+            TextBoxBuilder.ParseClick(sender, MainTb);
+        }
+        catch (Exception)
+        {
+            MainTb.Text = "ERR";
+        }
+    }
+
+    private void TextBoxInput(object sender, TextCompositionEventArgs e)
+    {
+        Regex regex = new Regex("[^0-9+-/*()%,\u221a^]+|[\\.]");
+        e.Handled = regex.IsMatch(e.Text);
     }
 }

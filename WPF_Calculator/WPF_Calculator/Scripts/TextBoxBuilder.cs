@@ -31,6 +31,26 @@ public class TextBoxBuilder
                 case ButtonTypes.Backspace:
                     Backspace(tb);
                     break;
+                
+                case ButtonTypes.Pow:
+                    AddToTextBox(tb, "^");
+                    break;
+                
+                case ButtonTypes.Root:
+                    AddToTextBox(tb, "√");
+                    break;
+                
+                case ButtonTypes.Ans:
+                    //Answer
+                    break;
+                
+                case ButtonTypes.Res:
+                    //Calc
+                    break;
+                
+                default:
+                    throw new NotImplementedException();
+                    
             }
         }
     }
