@@ -45,8 +45,8 @@
                 <Button Grid.Row="0" Grid.Column="2" Content="C" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Clear}"/>
                 <Button Grid.Row="0" Grid.Column="3" Content="bcksp" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Backspace}"/>
                 
-                <Button Grid.Row="1" Grid.Column="0" Content="x²" />
-                <Button Grid.Row="1" Grid.Column="1" Content="√x" />
+                <Button Grid.Row="1" Grid.Column="0" Content="Pow (^)" />
+                <Button Grid.Row="1" Grid.Column="1" Content="Root (√)" />
                 <Button Grid.Row="1" Grid.Column="2" Content="/" />
                 <Button Grid.Row="1" Grid.Column="3" Content="*" />
                 

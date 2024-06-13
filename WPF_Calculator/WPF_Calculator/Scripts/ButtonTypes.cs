@@ -6,5 +6,7 @@ public enum ButtonTypes
     OneOverX,
     Clear,
     Backspace,
+    Pow, 
+    Sqrt,
     Menu
 }

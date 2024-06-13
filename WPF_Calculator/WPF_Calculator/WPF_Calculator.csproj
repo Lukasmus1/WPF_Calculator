@@ -13,6 +13,10 @@
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>Shell.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Texts\Calculator.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Calculator.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -20,6 +24,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Shell.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Texts\Calculator.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Calculator.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 
