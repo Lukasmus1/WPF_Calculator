@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:WPF_Calculator"
         xmlns:text="clr-namespace:WPF_Calculator.Resources.Texts"
         mc:Ignorable="d"
-        Title="{x:Static text:Title.TitleText}" Height="720" Width="512">
+        Title="{x:Static text:Shell.Title}" 
+        Height="720" Width="512">
     <Grid>
-
+        
     </Grid>
 </Window>

@@ -9,17 +9,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\Texts\Title.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Title.Designer.cs</LastGenOutput>
+      <EmbeddedResource Update="Resources\Texts\Shell.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Shell.Designer.cs</LastGenOutput>
       </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Resources\Texts\Title.Designer.cs">
+      <Compile Update="Resources\Texts\Shell.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>Title.resx</DependentUpon>
+        <DependentUpon>Shell.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

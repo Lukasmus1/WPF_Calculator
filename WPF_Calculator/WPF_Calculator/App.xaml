@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WPF_Calculator"
              Startup="App_Startup">
     <Application.Resources>
-
+    
     </Application.Resources>
 </Application>
