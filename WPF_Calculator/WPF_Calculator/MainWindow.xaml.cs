@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Calculator.Scripts;
 
 namespace WPF_Calculator;
 
@@ -19,5 +20,10 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+    }
+
+    private void OnClick(object sender, RoutedEventArgs e)
+    {
+        TextBoxBuilder.ParseClick(sender, MainTb);
     }
 }
