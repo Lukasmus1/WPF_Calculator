@@ -45,7 +45,7 @@ public class TextBoxBuilder
                     break;
                 
                 case ButtonTypes.Res:
-                    //Calc
+                    Calculate(tb);
                     break;
                 
                 default:
@@ -76,6 +76,12 @@ public class TextBoxBuilder
     private static void MenuButton()
     {
         
+    }
+    
+    private static void Calculate(TextBox tb)
+    {
+        Calculation calc = new();
+        calc.Calculate(tb.Text);
     }
     
 }
