@@ -21,7 +21,8 @@
                      TextAlignment="Right"
                      VerticalAlignment="Center"
                      x:Name="MainTb"
-                     PreviewTextInput="TextBoxInput">
+                     PreviewTextInput="TextBoxInput"
+                     DataObject.Pasting="OnPaste">
             </TextBox>
         
         <!-- Buttons -->
