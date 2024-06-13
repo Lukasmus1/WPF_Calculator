@@ -5,10 +5,10 @@ namespace WPF_Calculator.Scripts;
 public class TextParser
 {
 
-    private Dictionary<string, int> operatorPrecedence = new Dictionary<string, int>
+    private readonly Dictionary<string, int> _operatorPrecedence = new Dictionary<string, int>
     {
-        { "(", 5 },
-        { ")", 5 },
+        { "(", 0 },
+        { ")", 0 },
         { "+", 1 },
         { "-", 1 },
         { "*", 2 },
@@ -44,24 +44,20 @@ public class TextParser
                             stack.Push(token);
                             break;
                         }
-                        tokenPre = operatorPrecedence[token.Value];
-                        if (operatorPrecedence.TryGetValue(stack.Peek().Value, out stackPre))
+                        tokenPre = _operatorPrecedence[token.Value];
+                        if (_operatorPrecedence.TryGetValue(stack.Peek().Value, out stackPre))
                         {
-                            if (tokenPre >= stackPre)
+                            if (tokenPre > stackPre )
+                            {
+                                stack.Push(token);
+                            }
+                            else
                             {
                                 KeyValuePair<NumberTypes, string> item = stack.Pop();
                                 result.Add(item);
                             }
-                            else
-                            {
-                                stack.Push(token);
-                            }
                         }
-                        else
-                        {
-                            //ERR
-                        }
-                    } while (tokenPre >= stackPre);
+                    } while (stackPre >= tokenPre);
                     break;
                 
                 // (
