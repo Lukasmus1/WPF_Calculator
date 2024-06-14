@@ -2,8 +2,9 @@
 
 public class Calculation
 {
-    private double _result;
-    public double Result
+    private readonly TextParser _parser = new();
+    private decimal? _result = null;
+    public decimal? Result
     {
         get => _result;
         set => _result = value;
@@ -11,8 +12,9 @@ public class Calculation
     
     public void Calculate(string expression)
     {
-        TextParser parser = new();
-        List<KeyValuePair<NumberTypes, string>> postfix = parser.PostfixConversion(expression);
-        Console.WriteLine(postfix);
+        List<KeyValuePair<NumberTypes, string>> postfix = _parser.PostfixConversion(expression);
+        
+
+        
     }
 }

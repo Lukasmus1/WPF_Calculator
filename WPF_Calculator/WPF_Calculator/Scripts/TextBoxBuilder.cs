@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Globalization;
+using System.Net.Http.Headers;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -6,6 +7,8 @@ namespace WPF_Calculator.Scripts;
 
 public class TextBoxBuilder
 {
+    private static readonly Calculation _calc = new();
+    
     public static void ParseClick(object sender, object textBox)
     {
         if (textBox is TextBox tb && sender is Button button)
@@ -41,7 +44,7 @@ public class TextBoxBuilder
                     break;
                 
                 case ButtonTypes.Ans:
-                    //Answer
+                    AddToTextBox(tb, _calc.Result != null ? _calc.Result.ToString() : string.Empty);
                     break;
                 
                 case ButtonTypes.Res:
@@ -55,7 +58,7 @@ public class TextBoxBuilder
         }
     }
     
-    private static void AddToTextBox(TextBox tb, string content)
+    private static void AddToTextBox(TextBox tb, string? content)
     {
         tb.Text += content;
     }
@@ -80,8 +83,9 @@ public class TextBoxBuilder
     
     private static void Calculate(TextBox tb)
     {
-        Calculation calc = new();
-        calc.Calculate(tb.Text);
+        _calc.Calculate(tb.Text);
+
+        tb.Text = _calc.Result.ToString() ?? string.Empty;
     }
     
 }
