@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Calculator"
         xmlns:text="clr-namespace:WPF_Calculator.Resources.Texts"
+        xmlns:scripts="clr-namespace:WPF_Calculator.Scripts"
         mc:Ignorable="d"
         Title="{x:Static text:Shell.Title}" 
         Height="720" Width="512">
@@ -18,7 +19,10 @@
             <TextBox Grid.Row="0"
                      FontSize="50"
                      TextAlignment="Right"
-                     VerticalAlignment="Center">
+                     VerticalAlignment="Center"
+                     x:Name="MainTb"
+                     PreviewTextInput="TextBoxInput"
+                     DataObject.Pasting="OnPaste">
             </TextBox>
         
         <!-- Buttons -->
@@ -38,34 +42,35 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 
-                <Button Grid.Row="0" Grid.Column="0" Content="MENU...?" />
-                <Button Grid.Row="0" Grid.Column="1" Content="1/x" />
-                <Button Grid.Row="0" Grid.Column="2" Content="C" />
-                <Button Grid.Row="0" Grid.Column="3" Content="bcksp" />
+                <Button Grid.Row="0" Grid.Column="0" Content="(" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="0" Grid.Column="1" Content=")" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="0" Grid.Column="2" Content="C" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Clear}"/>
+                <Button Grid.Row="0" Grid.Column="3" Content="←" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Backspace}"/>
                 
-                <Button Grid.Row="1" Grid.Column="0" Content="x²" />
-                <Button Grid.Row="1" Grid.Column="1" Content="√x" />
-                <Button Grid.Row="1" Grid.Column="2" Content="/" />
-                <Button Grid.Row="1" Grid.Column="3" Content="*" />
+                <Button Grid.Row="1" Grid.Column="0" Content="{x:Static text:Calculator.Pow}" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Pow}"/>
+                <Button Grid.Row="1" Grid.Column="1" Content="{x:Static text:Calculator.Root}" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Root}"/>
+                <Button Grid.Row="1" Grid.Column="2" Content="/" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="1" Grid.Column="3" Content="*" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
                 
-                <Button Grid.Row="2" Grid.Column="0" Content="7" />
-                <Button Grid.Row="2" Grid.Column="1" Content="8" />
-                <Button Grid.Row="2" Grid.Column="2" Content="9" />
-                <Button Grid.Row="2" Grid.Column="3" Content="-" />
+                <Button Grid.Row="2" Grid.Column="0" Content="7" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="2" Grid.Column="1" Content="8" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="2" Grid.Column="2" Content="9" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="2" Grid.Column="3" Content="-" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
                 
-                <Button Grid.Row="3" Grid.Column="0" Content="4" />
-                <Button Grid.Row="3" Grid.Column="1" Content="5" />
-                <Button Grid.Row="3" Grid.Column="2" Content="6" />
-                <Button Grid.Row="3" Grid.Column="3" Content="+" />
+                <Button Grid.Row="3" Grid.Column="0" Content="4" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="3" Grid.Column="1" Content="5" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="3" Grid.Column="2" Content="6" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="3" Grid.Column="3" Content="+" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
                 
-                <Button Grid.Row="4" Grid.Column="0" Content="1" />
-                <Button Grid.Row="4" Grid.Column="1" Content="2" />
-                <Button Grid.Row="4" Grid.Column="2" Content="3" />
+                <Button Grid.Row="4" Grid.Column="0" Content="1" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="4" Grid.Column="1" Content="2" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="4" Grid.Column="2" Content="3" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="4" Grid.Column="3" Content="ANS" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Ans}"/>
                 
-                <Button Grid.Row="5" Grid.Column="0" Content="%" />
-                <Button Grid.Row="5" Grid.Column="1" Content="0" />
-                <Button Grid.Row="5" Grid.Column="2" Content="," />
-                <Button Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" Content="=" />
+                <Button Grid.Row="5" Grid.Column="0" Content="%" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="5" Grid.Column="1" Content="0" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="5" Grid.Column="2" Content="," Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Writables}"/>
+                <Button Grid.Row="5" Grid.Column="3" Content="=" Click="OnClick" Tag="{x:Static scripts:ButtonTypes.Res}"/>
                 
             </Grid>
     </Grid>

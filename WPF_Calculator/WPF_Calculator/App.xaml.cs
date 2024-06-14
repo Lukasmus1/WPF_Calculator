@@ -21,4 +21,5 @@ public partial class App : Application
         window.Height = 0.5 * SystemParameters.PrimaryScreenHeight;
         window.Width = 0.2 * SystemParameters.PrimaryScreenWidth;
     }
+
 }
