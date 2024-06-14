@@ -47,14 +47,7 @@ public partial class MainWindow : Window
 
     private void OnClick(object sender, RoutedEventArgs e)
     {
-        try
-        {
-            TextBoxBuilder.ParseClick(sender, MainTb);
-        }
-        catch (Exception)
-        {
-            MainTb.Text = "ERR";
-        }
+        TextBoxBuilder.ParseClick(sender, MainTb);
     }
 
     private void TextBoxInput(object sender, TextCompositionEventArgs e)

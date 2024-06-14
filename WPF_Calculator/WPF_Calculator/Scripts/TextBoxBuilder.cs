@@ -2,6 +2,7 @@
 using System.Net.Http.Headers;
 using System.Windows.Controls;
 using System.Windows.Input;
+using MyNamespace;
 
 namespace WPF_Calculator.Scripts;
 
@@ -83,7 +84,15 @@ public class TextBoxBuilder
     
     private static void Calculate(TextBox tb)
     {
-        _calc.Calculate(tb.Text);
+        try
+        {
+            _calc.Calculate(tb.Text);
+        }
+        catch (DivideByZeroException )
+        {
+            tb.Text = Localization.GetString("ErrZeroDivision");
+            return;
+        }
 
         tb.Text = _calc.Result.ToString() ?? string.Empty;
     }
