@@ -93,6 +93,11 @@ public class TextBoxBuilder
             tb.Text = Localization.GetString("ErrZeroDivision");
             return;
         }
+        catch (Exception)
+        {
+            tb.Text = Localization.GetString("ErrInvalidExpression");
+            return;
+        }
 
         tb.Text = _calc.Result.ToString() ?? string.Empty;
     }

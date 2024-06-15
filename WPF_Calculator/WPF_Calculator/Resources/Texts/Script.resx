@@ -21,4 +21,7 @@
     <data name="ErrZeroDivision" xml:space="preserve">
         <value>Can't devide by zero!</value>
     </data>
+    <data name="ErrInvalidExpression" xml:space="preserve">
+        <value>Invalid expression!</value>
+    </data>
 </root>

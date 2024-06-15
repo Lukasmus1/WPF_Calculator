@@ -27,23 +27,28 @@ public class Calculation
                     break;
                 
                 case NumberTypes.Operator:
-                    //Exception for %
-                    
                     decimal op1 = decimal.Parse(stack.Pop());
+
+                    if (item.Value == "%")
+                    {
+                        stack.Push((op1 / 100).ToString());
+                        break;
+                    }
+                    
                     decimal op2 = decimal.Parse(stack.Pop());
                     
                     switch (item.Value)
                     {
                         case "+":
-                            stack.Push((op2 + op1).ToString(CultureInfo.InvariantCulture));
+                            stack.Push((op2 + op1).ToString());
                             break;
                         
                         case "-":
-                            stack.Push((op2 - op1).ToString(CultureInfo.InvariantCulture));
+                            stack.Push((op2 - op1).ToString());
                             break;
                         
                         case "*":
-                            stack.Push((op2 * op1).ToString(CultureInfo.InvariantCulture));
+                            stack.Push((op2 * op1).ToString());
                             break;
                         
                         case "/":
@@ -51,20 +56,16 @@ public class Calculation
                             {
                                 throw new DivideByZeroException();
                             }
-                            stack.Push((op2 / op1).ToString(CultureInfo.InvariantCulture));
+                            stack.Push((op2 / op1).ToString());
                             break;
                         
                         case "^":
-                            stack.Push(Math.Pow((double)op2, (double)op1).ToString(CultureInfo.InvariantCulture));
+                            stack.Push(Math.Pow((double)op2, (double)op1).ToString());
                             break;
                         
                         case "√":
-                            stack.Push(Math.Pow((double)op2, 1 / (double)op1).ToString(CultureInfo.InvariantCulture));
+                            stack.Push(Math.Pow((double)op2, 1 / (double)op1).ToString());
                             break;
-                        
-                        /*case "%":
-                            stack.Push((op2 % op1).ToString());
-                            break;*/
                         
                         default:
                             throw new NotImplementedException();

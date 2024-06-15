@@ -14,4 +14,7 @@
     <data name="ErrZeroDivision" xml:space="preserve">
         <value>Zákaz dělení nulou!</value>
     </data>
+    <data name="ErrInvalidExpression" xml:space="preserve">
+        <value>Neplatný výraz!</value>
+    </data>
 </root>

@@ -60,6 +60,15 @@ namespace WPF_Calculator.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid expression!.
+        /// </summary>
+        internal static string ErrInvalidExpression {
+            get {
+                return ResourceManager.GetString("ErrInvalidExpression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t devide by zero!.
         /// </summary>
         internal static string ErrZeroDivision {
