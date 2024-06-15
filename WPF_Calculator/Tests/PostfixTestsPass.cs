@@ -15,7 +15,7 @@ public class PostfixTesting
     [InlineData("2+2+3", "22+3+")]
     [InlineData("2-2+3", "22-3+")]
     [InlineData("2*2/3", "22*3/")]
-    [InlineData("2*2√3", "223√*")]
+    [InlineData("2*2√3%5", "223√*5%")]
     [InlineData("2^2√3", "22^3√")]
     [InlineData("2^9^7^8^9^7", "29^7^8^9^7^")]
     [InlineData("10*45+8*7^2", "1045*872^*+")]
@@ -34,7 +34,9 @@ public class PostfixTesting
     }
     
     [Theory]
+    [InlineData("0,1+0,02", "0,10,02+")]
     [InlineData("1+(1-1)", "111-+")]
+    [InlineData("1+(-1)", "101-+")]
     [InlineData("1+8*(1-1/7)", "18117/-*+")]
     [InlineData("(1+8)*(1-(1/7))", "18+117/-*")]
     [InlineData("(1+8)*(1-(1/7^(8^9)))", "18+11789^^/-*")]

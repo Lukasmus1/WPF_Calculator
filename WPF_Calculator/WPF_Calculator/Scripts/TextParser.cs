@@ -15,7 +15,7 @@ public class TextParser
         { "/", 2 },
         { "^", 3 },
         { "√", 3 },
-        { "%", 4 }
+        { "%", 2 }
     };
     
     public List<KeyValuePair<NumberTypes, string>> PostfixConversion(string expression)
