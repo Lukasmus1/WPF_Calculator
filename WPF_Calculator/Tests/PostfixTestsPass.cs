@@ -11,6 +11,7 @@ public class PostfixTesting
     [InlineData("1/1", "11/")]
     [InlineData("1^1", "11^")]
     [InlineData("1√1", "11√")]
+    [InlineData("1%1", "11%")]
     [InlineData("2+2+3", "22+3+")]
     [InlineData("2-2+3", "22-3+")]
     [InlineData("2*2/3", "22*3/")]
@@ -37,8 +38,8 @@ public class PostfixTesting
     [InlineData("1+8*(1-1/7)", "18117/-*+")]
     [InlineData("(1+8)*(1-(1/7))", "18+117/-*")]
     [InlineData("(1+8)*(1-(1/7^(8^9)))", "18+11789^^/-*")]
-    [InlineData("-15+5", "15-5+")]
-    [InlineData("-((5^10)*5^(8*9-(10+5)))", "510^589*105+-^*-")]
+    [InlineData("-15+5", "015-5+")]
+    [InlineData("-((5^10)*5^(8*9-(10+5)))", "0510^589*105+-^*-")]
     public void AdvancedTests(string input, string expected)
     {
         //Arrange

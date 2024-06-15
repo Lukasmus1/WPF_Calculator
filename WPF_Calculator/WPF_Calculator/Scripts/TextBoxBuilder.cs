@@ -41,7 +41,7 @@ public class TextBoxBuilder
                     break;
                 
                 case ButtonTypes.Root:
-                    AddToTextBox(tb, "√");
+                    AddToTextBox(tb, "2√");
                     break;
                 
                 case ButtonTypes.Ans:

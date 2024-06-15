@@ -69,7 +69,7 @@ namespace WPF_Calculator.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Root (√).
+        ///   Looks up a localized string similar to Sqrt(√).
         /// </summary>
         public static string Root {
             get {
