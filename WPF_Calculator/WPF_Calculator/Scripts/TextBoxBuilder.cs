@@ -8,54 +8,63 @@ namespace WPF_Calculator.Scripts;
 
 public class TextBoxBuilder
 {
-    private static readonly Calculation _calc = new();
+    public static readonly Calculation Calc = new();
     
     public static void ParseClick(object sender, object textBox)
     {
         if (textBox is TextBox tb && sender is Button button)
         {
+            string content;
             switch (button.Tag)
             {
                 case ButtonTypes.Menu:
                     MenuButton();
-                    break;
+                    return;
                 
                 case ButtonTypes.Writables:
-                    AddToTextBox(tb, button.Content.ToString()!);
+                    content = button.Content.ToString()!;
                     break;
                 
                 case ButtonTypes.OneOverX:
-                    AddToTextBox(tb, "(1/");
+                    content = "(1/";
                     break;
                 
                 case ButtonTypes.Clear:
                     ClearTextBox(tb);
-                    break;
+                    return;
                 
                 case ButtonTypes.Backspace:
                     Backspace(tb);
-                    break;
+                    return;
                 
                 case ButtonTypes.Pow:
-                    AddToTextBox(tb, "^");
+                    content = "^";
                     break;
                 
                 case ButtonTypes.Root:
-                    AddToTextBox(tb, "2√");
+                    content = "2√";
                     break;
                 
                 case ButtonTypes.Ans:
-                    AddToTextBox(tb, _calc.Result != null ? _calc.Result.ToString() : string.Empty);
+                    content = Calc.Result != null ? Calc.Result.ToString()! : string.Empty;
                     break;
                 
                 case ButtonTypes.Res:
                     Calculate(tb);
-                    break;
+                    return;
                 
                 default:
                     throw new NotImplementedException();
                     
             }
+            
+            if (Calc.GotResult)
+            {
+                ClearTextBox(tb);
+                Calc.GotResult = false;
+            }
+            
+            AddToTextBox(tb, content);
         }
     }
     
@@ -86,7 +95,8 @@ public class TextBoxBuilder
     {
         try
         {
-            _calc.Calculate(tb.Text);
+            Calc.Calculate(tb.Text);
+            Calc.GotResult = true;
         }
         catch (DivideByZeroException )
         {
@@ -99,7 +109,7 @@ public class TextBoxBuilder
             return;
         }
 
-        tb.Text = _calc.Result.ToString() ?? string.Empty;
+        tb.Text = Calc.Result.ToString() ?? string.Empty;
     }
     
 }

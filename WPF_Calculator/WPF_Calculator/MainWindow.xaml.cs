@@ -22,16 +22,22 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataObject.AddPastingHandler(MainTb, OnPaste);
+        MainTb.Focus();
     }
 
     private void OnPaste(object sender, DataObjectPastingEventArgs e)
     {
-        if (e.DataObject.GetDataPresent(typeof(String)))
+        if (e.DataObject.GetDataPresent(typeof(string)))
         {
             String text = (String)e.DataObject.GetData(typeof(String));
             if (!IsValidInput(text))
             {
                 e.CancelCommand();
+            }
+            
+            if (TextBoxBuilder.Calc.GotResult)
+            {
+                TextBoxBuilder.Calc.GotResult = false;
             }
         }
         else
@@ -45,14 +51,21 @@ public partial class MainWindow : Window
         return !regex.IsMatch(text);
     }
 
-    private void OnClick(object sender, RoutedEventArgs e)
+    private void CalculatorOnClick(object sender, RoutedEventArgs e)
     {
         TextBoxBuilder.ParseClick(sender, MainTb);
+        MainTb.Focus();
+        MainTb.CaretIndex = MainTb.Text.Length;
     }
 
     private void TextBoxInput(object sender, TextCompositionEventArgs e)
     {
-        Regex regex = new Regex("[^0-9+-/*()%,\u221a^]+|[\\.]");
+        if (TextBoxBuilder.Calc.GotResult)
+        {
+            TextBoxBuilder.Calc.GotResult = false;
+        }
+        
+        Regex regex = new("[^0-9+-/*()%,\u221a^]+|[\\.]");
         e.Handled = regex.IsMatch(e.Text);
     }
 }

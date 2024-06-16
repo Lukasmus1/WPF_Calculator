@@ -5,13 +5,11 @@ namespace WPF_Calculator.Scripts;
 public class Calculation
 {
     private readonly TextParser _parser = new();
-    private decimal? _result = null;
-    public decimal? Result
-    {
-        get => _result;
-        set => _result = value;
-    }
-    
+
+    public decimal? Result { get; private set; } = null;
+
+    public bool GotResult { get; set; } = false;
+
     public void Calculate(string expression)
     {
         //Throws an exception if the expression is invalid
@@ -77,6 +75,14 @@ public class Calculation
         {
             throw new Exception();
         }
-        _result = res;
+        
+        string tempRes = res.ToString();
+        int index = tempRes.IndexOf(',');
+        if (index != -1 && tempRes.Length - index > 15)
+        {
+            tempRes = tempRes[..(index + 16)];
+        }
+        
+        Result = decimal.Parse(tempRes);
     }
 }
