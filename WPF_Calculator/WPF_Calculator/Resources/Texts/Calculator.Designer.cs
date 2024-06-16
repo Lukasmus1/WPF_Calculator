@@ -60,7 +60,7 @@ namespace WPF_Calculator.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Power (^).
+        ///   Looks up a localized string similar to Power(^).
         /// </summary>
         public static string Pow {
             get {

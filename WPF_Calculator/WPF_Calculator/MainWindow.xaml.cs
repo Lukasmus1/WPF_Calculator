@@ -29,7 +29,8 @@ public partial class MainWindow : Window
     {
         if (e.DataObject.GetDataPresent(typeof(string)))
         {
-            String text = (String)e.DataObject.GetData(typeof(String));
+            string text = (string)e.DataObject.GetData(typeof(string))!;
+
             if (!IsValidInput(text))
             {
                 e.CancelCommand();
@@ -45,7 +46,7 @@ public partial class MainWindow : Window
             e.CancelCommand();
         }
     }
-    private bool IsValidInput(string text)
+    private static bool IsValidInput(string text)
     {
         Regex regex = new Regex("[^0-9+-/*()%,\u221a^]+|[\\.]");
         return !regex.IsMatch(text);

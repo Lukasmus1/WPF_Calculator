@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:WPF_Calculator"
              Startup="App_Startup">
     <Application.Resources>
-    
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -41,8 +41,4 @@
       </Compile>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Resources\Styles\Colors\" />
-    </ItemGroup>
-
 </Project>
