@@ -27,7 +27,12 @@ public class CalculationTestsPass
     }
     
     [Theory]
-    [InlineData("1+1", 2)]
+    [InlineData("0,1+1,002", 1.102)]
+    [InlineData("0,25*0,25", 0.0625)]
+    [InlineData("(10+5^2)* 7 +4        *8        /2", 261)]
+    [InlineData("1+(1-1)", 1)]
+    [InlineData("1+-1)", 0)]
+    [InlineData("1+8*(1-1/7)", 7.8571428571428571428571428571)]
     public void AdvancedTests(string input, decimal output)
     {
         //Arrange

@@ -35,6 +35,7 @@ public class PostfixTesting
     
     [Theory]
     [InlineData("0,1+0,02", "0,10,02+")]
+    [InlineData("0,2      5     *0    ,25", "0,250,25*")]
     [InlineData("1+(1-1)", "111-+")]
     [InlineData("1+(-1)", "101-+")]
     [InlineData("1+8*(1-1/7)", "18117/-*+")]

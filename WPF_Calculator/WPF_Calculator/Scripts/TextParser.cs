@@ -14,14 +14,23 @@ public class TextParser
         { "*", 2 },
         { "/", 2 },
         { "^", 3 },
-        { "√", 3 },
+        { "√", 4 }, //Highest precedence, because of my implementation
         { "%", 2 }
     };
     
     public List<KeyValuePair<NumberTypes, string>> PostfixConversion(string expression)
     {
         List<KeyValuePair<NumberTypes, string>> result = new();
-        List<KeyValuePair<NumberTypes, string>> tokens = Tokenize(expression);
+        List<KeyValuePair<NumberTypes, string>> tokens;
+        try
+        {
+             tokens = Tokenize(expression);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
         Stack<KeyValuePair<NumberTypes, string>> stack = new();
 
         foreach (KeyValuePair<NumberTypes, string> token in tokens)
@@ -92,7 +101,7 @@ public class TextParser
         return result;
     }
     
-    private List<KeyValuePair<NumberTypes, string>> Tokenize(string expression)
+    private static List<KeyValuePair<NumberTypes, string>> Tokenize(string expression)
     {
         List<KeyValuePair<NumberTypes, string>> tokens = new();
 
@@ -152,8 +161,7 @@ public class TextParser
                     break;
                 
                 default:
-                    Console.WriteLine("gg");
-                    break;
+                    throw new Exception();
             }
         }
 

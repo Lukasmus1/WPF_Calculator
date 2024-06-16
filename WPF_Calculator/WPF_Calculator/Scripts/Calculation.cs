@@ -14,8 +14,9 @@ public class Calculation
     
     public void Calculate(string expression)
     {
+        //Throws an exception if the expression is invalid
         List<KeyValuePair<NumberTypes, string>> postfix = _parser.PostfixConversion(expression);
-
+        
         Stack<string> stack = new();
         
         foreach (KeyValuePair<NumberTypes,string> item in postfix)
