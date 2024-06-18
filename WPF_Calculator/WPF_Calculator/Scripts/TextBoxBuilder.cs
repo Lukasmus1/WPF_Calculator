@@ -42,7 +42,7 @@ public class TextBoxBuilder
                     break;
                 
                 case ButtonTypes.Root:
-                    content = "2√";
+                    content = "2√(";
                     break;
                 
                 case ButtonTypes.Ans:

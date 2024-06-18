@@ -56,6 +56,10 @@ public class Calculation
                             break;
                         
                         case "√":
+                            if (op1 < 0)
+                            {
+                                throw new Exception();
+                            }
                             stack.Push(Math.Sqrt((double)op1).ToString());
                             break;
                         

@@ -12,8 +12,8 @@ public class CalculationTestsPass
     [InlineData("2^3", 8)]
     [InlineData("10%2", 0)]
     [InlineData("10%3", 1)]
-    [InlineData("2√9", 3)]
-    [InlineData("2√9*5+5-8*2-4-21", -21)]
+    [InlineData("2√(9)", 3)]
+    [InlineData("2√(9)*5+5-8*2-4-21", -21)]
     public void BasicTests(string input, decimal output)
     {
         //Arrange
