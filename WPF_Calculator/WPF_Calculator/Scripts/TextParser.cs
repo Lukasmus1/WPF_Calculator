@@ -14,14 +14,23 @@ public class TextParser
         { "*", 2 },
         { "/", 2 },
         { "^", 3 },
-        { "√", 3 },
-        { "%", 4 }
+        { "√", 4 }, //Highest precedence, because of my implementation
+        { "%", 2 }
     };
     
     public List<KeyValuePair<NumberTypes, string>> PostfixConversion(string expression)
     {
         List<KeyValuePair<NumberTypes, string>> result = new();
-        List<KeyValuePair<NumberTypes, string>> tokens = Tokenize(expression);
+        List<KeyValuePair<NumberTypes, string>> tokens;
+        try
+        {
+             tokens = Tokenize(expression);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
         Stack<KeyValuePair<NumberTypes, string>> stack = new();
 
         foreach (KeyValuePair<NumberTypes, string> token in tokens)
@@ -92,55 +101,67 @@ public class TextParser
         return result;
     }
     
-    private List<KeyValuePair<NumberTypes, string>> Tokenize(string expression)
+    private static List<KeyValuePair<NumberTypes, string>> Tokenize(string expression)
     {
         List<KeyValuePair<NumberTypes, string>> tokens = new();
 
         bool buildingNumber = false;
         string number = "";
+        NumberTypes? lastType = null;
         foreach (char c in expression)
         {
             if (char.IsDigit(c) || c == ',')
             {
                 buildingNumber = true;
                 number += c;
+                lastType = NumberTypes.Operand;
                 continue;
             }
-            else
+            
+            if (buildingNumber)
             {
-                if (buildingNumber)
-                {
-                    tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.Operand, number));
-                    number = "";
-                    buildingNumber = false;
-                }
+                tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.Operand, number));
+                number = "";
+                buildingNumber = false;
             }
             
             switch (c)
             {
                 case '(':
                     tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.OpenParenthesis, c.ToString()));
+                    lastType = NumberTypes.OpenParenthesis;
                     break;
                 case ')':
                     tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.CloseParenthesis, c.ToString()));
+                    lastType = NumberTypes.CloseParenthesis;
+                    break;
+                
+                case '-':
+                    if (lastType is null or NumberTypes.Operator or NumberTypes.OpenParenthesis)
+                    {
+                        tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.Operand, "0"));
+                        tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.Operator, c.ToString()));
+                        break;
+                    }
+                    
+                    tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.Operator, c.ToString()));
                     break;
                 
                 case '+':
-                case '-':
                 case '*':
                 case '/':
                 case '^':
                 case '√':
                 case '%':
                     tokens.Add(new KeyValuePair<NumberTypes, string>(NumberTypes.Operator, c.ToString()));
+                    lastType = NumberTypes.Operator;
                     break;
                 
                 case ' ':
                     break;
                 
                 default:
-                    Console.WriteLine("gg");
-                    break;
+                    throw new Exception();
             }
         }
 

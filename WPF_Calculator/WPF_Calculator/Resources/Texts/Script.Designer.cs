@@ -21,24 +21,24 @@ namespace WPF_Calculator.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Calculator {
+    internal class Script {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Calculator() {
+        internal Script() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WPF_Calculator.Resources.Texts.Calculator", typeof(Calculator).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WPF_Calculator.Resources.Texts.Script", typeof(Script).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -50,7 +50,7 @@ namespace WPF_Calculator.Resources.Texts {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -60,20 +60,20 @@ namespace WPF_Calculator.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Power(^).
+        ///   Looks up a localized string similar to Invalid expression!.
         /// </summary>
-        public static string Pow {
+        internal static string ErrInvalidExpression {
             get {
-                return ResourceManager.GetString("Pow", resourceCulture);
+                return ResourceManager.GetString("ErrInvalidExpression", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sqrt(√).
+        ///   Looks up a localized string similar to Can&apos;t devide by zero!.
         /// </summary>
-        public static string Root {
+        internal static string ErrZeroDivision {
             get {
-                return ResourceManager.GetString("Root", resourceCulture);
+                return ResourceManager.GetString("ErrZeroDivision", resourceCulture);
             }
         }
     }
