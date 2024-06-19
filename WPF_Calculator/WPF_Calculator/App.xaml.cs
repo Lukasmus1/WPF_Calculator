@@ -12,21 +12,22 @@ public partial class App : Application
     void App_Startup(object sender, StartupEventArgs e)
     {
         MainWindow mainWindow = new MainWindow();
-        SetHeightAndWidth(mainWindow);
-        SetMinHeightAndWidth(mainWindow);
+        SetHeightAndWidth(mainWindow, 0.5 * SystemParameters.PrimaryScreenHeight, 0.2 * SystemParameters.PrimaryScreenWidth);
+        SetMinHeightAndWidth(mainWindow, 0.3 * SystemParameters.PrimaryScreenHeight, 0.2 * SystemParameters.PrimaryScreenWidth);
+        SetHeightAndWidth(mainWindow.HelpButton, 0.03 * SystemParameters.PrimaryScreenHeight, 0.03 * SystemParameters.PrimaryScreenWidth);
         mainWindow.Show();
     }
     
-    private static void SetHeightAndWidth(Window window)
+    private static void SetHeightAndWidth(FrameworkElement obj, double height, double width)
     {
-        window.Height = 0.5 * SystemParameters.PrimaryScreenHeight;
-        window.Width = 0.2 * SystemParameters.PrimaryScreenWidth;
+        obj.Height = height;
+        obj.Width = width;
     }
 
-    private static void SetMinHeightAndWidth(Window window)
+    private static void SetMinHeightAndWidth(Window window, double height, double width)
     {
-        window.MinHeight = 0.3 * SystemParameters.PrimaryScreenHeight;
-        window.MinWidth = 0.15 * SystemParameters.PrimaryScreenWidth;
+        window.MinHeight = height;
+        window.MinWidth = width;
     }
     
 }

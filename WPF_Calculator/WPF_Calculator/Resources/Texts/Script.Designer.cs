@@ -69,11 +69,38 @@ namespace WPF_Calculator.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can&apos;t devide by zero!.
+        ///   Looks up a localized string similar to Can&apos;t divide by zero!.
         /// </summary>
         internal static string ErrZeroDivision {
             get {
                 return ResourceManager.GetString("ErrZeroDivision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculator works by either pressing buttons OR by using keyboard to input mathematical expressions.
+        ///Buttons with numbers on them input their numbers.
+        ///= will try to calculate the expression present in the input field and output its result.
+        ///+ Is addition.
+        ///- Is subtraction.
+        ///* Is multiplication.
+        /// / is division.
+        ///% is modulo, NOT PERCENTAGE!
+        ///^ is power.
+        ///√ is square root. This will put 2√( in the input field. The 2 is there so you can see that It&apos;s a square root, changing this value will have no effect on  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        internal static string HelpLabel {
+            get {
+                return ResourceManager.GetString("HelpLabel", resourceCulture);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace MyNamespace
 
         public static string GetString(string key)
         {
-            string? value = _scriptResourceManager.GetString(key, CultureInfo.CurrentCulture);
+            string? value = _scriptResourceManager.GetString(key, CultureInfo.CurrentUICulture);
             
             if (value == null)
             {

@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Calculator.Scripts;
+using Localization = MyNamespace.Localization;
 
 namespace WPF_Calculator;
 
@@ -52,6 +53,11 @@ public partial class MainWindow : Window
         return !regex.IsMatch(text);
     }
 
+    private void HelpOnClick(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show(Localization.GetString("Help"), Localization.GetString("HelpLabel"), MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+    
     private void CalculatorOnClick(object sender, RoutedEventArgs e)
     {
         TextBoxBuilder.ParseClick(sender, MainTb);
