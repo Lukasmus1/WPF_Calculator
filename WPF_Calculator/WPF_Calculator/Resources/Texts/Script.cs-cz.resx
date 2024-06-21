@@ -17,4 +17,24 @@
     <data name="ErrInvalidExpression" xml:space="preserve">
         <value>Neplatný výraz!</value>
     </data>
+    <data name="HelpLabel" xml:space="preserve">
+        <value>Nápověda</value>
+    </data>
+    <data name="Help" xml:space="preserve">
+        <value>S kalkulačkou se dá pracovat buď mačkáním tlačítek NEBO psaním výrazů přímo z klávesnice.
+Tlačítka s čísly po zmáčknutí napíšou dené číslo do vstupního pole.
+= se pokusí vypočítat výraz ve vstupním poli a napsat jeho výsledek.
++ je součet.
+- je odečítání.
+* je násobení
+/ je dělení.
+% je modulo, NIKOLIV PROCENTO.
+^ je mocnina.
+√ je druhá odmocnina. Toto tlačítko napíše 2√( do vstupního pole. Číslo 2 je zde aby šlo vidět, že se jedná o druhou odmocninu, jeho záměna za jiné číslo nebude mít na výraz vliv. Samotný výraz, který má být odmocněn se potom píše do závorky. NEZAPOMEŇTE ZÁVORKU POTÉ UZAVŘÍT.  
+( ) vypíše danou závorku do vstupního pole.
+C smaže celé vstupní pole.
+← smaže jeden znak ve vstupním poli.
+, je desetinná čárka.
+ANS vypíše poslední vypočítaný výsledek po zmáčknutí =</value>
+    </data>
 </root>

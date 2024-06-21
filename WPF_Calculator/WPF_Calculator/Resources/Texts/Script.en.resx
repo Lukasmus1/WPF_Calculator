@@ -12,9 +12,29 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ErrZeroDivision" xml:space="preserve">
-        <value>Can't devide by zero!</value>
+        <value>Can't divide by zero!</value>
     </data>
     <data name="ErrInvalidExpression" xml:space="preserve">
         <value>Invalid expression!</value>
+    </data>
+    <data name="HelpLabel" xml:space="preserve">
+        <value>Help</value>
+    </data>
+    <data name="Help" xml:space="preserve">
+        <value>Calculator works by either pressing buttons OR by using keyboard to input mathematical expressions.
+Buttons with numbers on them input their numbers.
+= will try to calculate the expression present in the input field and output its result.
++ Is addition.
+- Is subtraction.
+* Is multiplication.
+/ is division.
+% is modulo, NOT PERCENTAGE!
+^ is power.
+√ is square root. This will put 2√( in the input field. The 2 is there so you can see that It's a square root, changing this value will have no effect on the result of the expression. You input the expression you want square rooted in the brackets BE SURE TO CLOSE THE BRACKET AFTERWARDS. 
+( ) will put it's bracket in the input field.
+C will clean the input field.
+← will erase one character in the field.
+, is a decimal point.
+ANS will input the last result of a calculation after pressing =</value>
     </data>
 </root>

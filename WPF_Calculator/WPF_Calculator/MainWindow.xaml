@@ -13,7 +13,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-            
+        
+        
         <!-- Display -->
             <TextBox Grid.Row="0"
                      FontSize="50"
@@ -23,6 +24,16 @@
                      PreviewTextInput="TextBoxInput"
                      DataObject.Pasting="OnPaste">
             </TextBox>
+        
+        <!-- Help Button -->
+        <Button Grid.Row="0" 
+                Content="?" 
+                Click="HelpOnClick" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Background="Aqua"
+                x:Name="HelpButton"
+        />
         
         <!-- Buttons -->
             <Grid Row="1">
